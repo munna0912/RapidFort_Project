@@ -18,51 +18,49 @@ Before you begin, ensure you have met the following requirements:
 
    ```bash
    git clone https://github.com/munna0912/RapidFort_Project.git
-Change to the project directory:
+2. Change to the project directory:
 
     ```bash
-    cd your-repo
-
-Install the required Python packages:
+    RapidFort_Project
+3. Install the required Python packages:
 
     ```bash
     pip install -r requirements.txt
 
-Running Locally
+4. Running Locally
 To run the Flask application locally, use the following command:
 
     ```bash
     python app.py
+5. Access the application in your browser at http://localhost:5000.
 
-Access the application in your browser at http://localhost:5000.
-
-Building and Running with Docker
+## Building and Running with Docker
 To build and run the application in a Docker container, follow these steps:
 
-Build the Docker image:
+1. Build the Docker image:
 
     ```bash
-    docker build -t your-image-name:latest .
+    docker build -t munna:latest .
 
-Run the Docker container:
+2. Run the Docker container:
 
     ```bash
     docker run -d -p 5000:5000 --name your-container-name your-image-name:latest
 Access the application in your browser at http://127.0.0.1:5000.
 
-Deployment to Kubernetes
+## Deployment to Kubernetes
 To deploy the application to a Kubernetes cluster, use the provided Kubernetes manifest files. Ensure that you have a Kubernetes cluster set up and kubectl configured to communicate with it.
 
-Apply the Kubernetes manifests:
+1. Apply the Kubernetes manifests:
 
     ```bash
     kubectl apply -f kubernetes/namespace.yaml 
     kubectl apply -f kubernetes/deployment.yaml
     kubectl apply -f kubernetes/service.yaml
-Access the application using the appropriate URL provided by your Kubernetes service (e.g., LoadBalancer IP or NodePort).
+2. Access the application using the appropriate URL provided by your Kubernetes service (e.g., LoadBalancer IP or NodePort).
 
-Usage
-Use the web interface to upload, download, update, and delete files.
-You can also interact with the application programmatically using the provided API endpoints.
-Contributing
+## Usage
+- Use the web interface to upload, download, update, and delete files.
+- You can also interact with the application programmatically using the provided API endpoints.
+## Contributing
 Contributions are welcome! If you have any ideas, enhancements, or bug fixes, please open an issue or submit a pull request.
