@@ -1,7 +1,8 @@
 from flask import Flask, request, jsonify, send_from_directory, render_template
 from flask_cors import CORS
 import os
-import magic
+import subprocess
+import shlex
 
 app = Flask(__name__)
 CORS(app)
@@ -40,9 +41,28 @@ def get_file_details(filename):
     file_path = os.path.join(app.config['UPLOAD_FOLDER'], filename)
     if not os.path.exists(file_path):
         return jsonify({'error': 'File not found'})
+
+    # Run the 'file' command on the file to get its details
+    try:
+        command = f"file '{file_path}'"
+        result = subprocess.check_output(shlex.split(command), universal_newlines=True)
+    except subprocess.CalledProcessError as e:
+        return jsonify({'error': 'Failed to determine file details'})
+
+    # Parse the 'file' command output and extract relevant details
+    file_details = {
+        'filename': filename,
+        'file_details': result.strip()
+    }
+
+    return jsonify(file_details)
+# def get_file_details(filename):
+#     file_path = os.path.join(app.config['UPLOAD_FOLDER'], filename)
+#     if not os.path.exists(file_path):
+#         return jsonify({'error': 'File not found'})
     
-    file_type = get_file_type(file_path)
-    return jsonify({'file_type': file_type})
+#     file_type = get_file_type(file_path)
+#     return jsonify({'file_type': file_type})
 
 @app.route('/files/<filename>', methods=['PUT'])
 def update_file(filename):
