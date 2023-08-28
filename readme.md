@@ -41,12 +41,12 @@ To build and run the application in a Docker container, follow these steps:
 1. Build the Docker image:
 
     ```bash
-    docker build -t munna:latest .
+    docker build -t munna0912/rapidfort:latest .
 
 2. Run the Docker container:
 
     ```bash
-    docker run -d -p 5000:5000 --name your-container-name your-image-name:latest
+    docker run -d -p 5000:5000 --name munna0912 munna0912/rapidfort:latest
 Access the application in your browser at http://127.0.0.1:5000.
 
 ## Deployment to Kubernetes

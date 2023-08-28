@@ -14,6 +14,6 @@ spec:
     spec:
       containers:
       - name: flask-app
-        image: munna:latest
+        image: munna0912/rapidfort:latest
         ports:
         - containerPort: 5000 
