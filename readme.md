@@ -32,7 +32,8 @@ To run the Flask application locally, use the following command:
 
     ```bash
     python app.py
-5. Access the application in your browser at http://localhost:5000.
+5. Access the application in your browser at http://127.0.0.1:5000.
+
 
 ## Building and Running with Docker
 To build and run the application in a Docker container, follow these steps:
