@@ -20,7 +20,7 @@ jobs:
       run: echo ${{ secrets.DOCKERHUB_PASSWORD }} | docker login -u ${{ secrets.DOCKERHUB_USERNAME }} --password-stdin
 
     - name: Build Docker image
-      run: docker build -t munna:latest .
+      run: docker build -t munna0912/rapidfort:latest .
     
     - name: Push Docker image to Docker Hub
-      run: docker push munna:latest
+      run: docker push munna0912/rapidfort:latest
